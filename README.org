@@ -5,11 +5,16 @@
 
 * Table of Contents :TOC:
 - [[#preface][Preface]]
+- [[#roadmap][Roadmap]]
 - [[#progress][Progress]]
   - [[#stage-1-get-it-working-with-ros][Stage 1: Get it working with ROS]]
   - [[#stage-2-learn-basics-of-ros2][Stage 2: Learn basics of ROS2]]
   - [[#stage-3-run-roscore-equivalent-of-ros2][Stage 3: Run "roscore" equivalent of ros2]]
 - [[#links][Links]]
+
+* Roadmap
+Refer to the [[./roadmap.org][roadmap.org]] file.
+
 
 * Progress
 ** Stage 1: Get it working with ROS

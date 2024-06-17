@@ -1,0 +1,89 @@
+#+title: Roadmap
+#+author: Atri Hegde
+#+description: Roadmap for ROS2 using Nix.
+
+* Preface
+To use the Nix package manager and its features to package ROS 2 to provide a more universal installation.
+
+- Why Nix?: It provides static linkage. The reason ROS make us use specific versions of ubuntu upon other things is because there are shared libraries needed by ROS which are dynamically linked. Nix fixes this by being all self contained. It does not use system libraries. Example: google-glog or protobuf
+
+- It is definetely possible to package it for MacOS, but I do not know how long it will take as I will need to learn this along the way.
+
+* Step 1
+Expected duration: 7 days
+
+- Decide ROS 2 distribution (preferrably Humble).
+- Adding darwin support and testing on WSL.
+
+If time allows it figuring out our test project to validate how well my solution works.
+
+* Step 2
+Expected duration: 7 days
+
+- MVP on macOS, Windows 11 WSL and Windows 10 WSL using ROS Noetic.
+- Learning and creating =flakes=.
+- Create basic solution that will allow us to run something like =nix develop hegde-atri/nix-ros2= to have access to all the tools they need.
+- Test if we can bypass the need for WSL by using Docker on windows.
+
+* Step 3
+Expected duration: 7-10 days
+
+- Start building ROS 2 using the [[https://github.com/lopsided98/nix-ros-overlay][nix-ros-overylay]].
+- Check all required packages exist.
+- Running the equivalent of roscore and launching gazebo/rviz.
+
+* Step 4
+Expected duration: 5-7 days.
+
+- Enabling GPU acceleration.
+- Creating a working development shell on linux platforms.
+- Starting to write documentation for linux platforms.
+
+* Step 5
+Expected duration: 5 days.
+
+- Testing install times, trying to create cachix if it doesn't already exist.
+- A quicker and easier way to get into the nix dev shell.
+
+* Step 6
+Expected time: 14 days.
+
+- Adding support to macOS, WSL.
+- Writing the documentation for it.
+
+* Step 7
+Expected time: < 5 days.
+
+- Testing it on a handful of computers for reproducibility.
+- Deplyoying to the DIA-LAB computers. (This can be done sooner as soon as I have an MVP)
+
+* Step 8
+Expected time: nil
+
+I would be helping out installing and testing all required features on tb3 waffles.
+
+* Final product
+(Assuming that windows users just have to install WSL 2 and enable systemd, guide [[https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/][here]] or just normal WSL using single user installation.)
+
+- Install the nix package manager easily using sh.
+- Run =nix develop hegde-atri/nix-ros2=.
+- Have access to all ros tools.
+
+* Updates
+I will be on holiday about 3 weeks. During this time period, I will be sending weekly reports of the progress that has been done.
+
+- Clear bullet points of what has been achieved.
+- If testable, then the testing instruction incase we need to check if it works on a University laptop.
+- You will also be able to see from the commits to the GitHub repository.
+
+* Overview
+- 10th - 14th June: Learn basics of ROS2 and decide on distribution.
+- 17th - 21st June: Getting gazebo and rviz running on Mac and Windows. Decide on ROS2
+- 24th - 28th June: Getting the equivalent of "roscore" and maybe gazebo+rviz working.
+- 1st - 5th July: Ironing out support on Linux for all ros packages (possibly getting openGL working for GPU acceleration).
+- 8th - 12th July: Writing documentation and writing the shell.nix file that will be used.
+- 15th - 19th July: Testing reproducibility and install times. (Figure out packaging for better/easier distribution)
+- 22nd - 26th July: // TBD
+- 29th - 2nd August: Working on macOS and Windows support.
+- 5th - 9th August: Working on macOS and Windows support. (+writing documentation/instructions)
+- 9th Aug ... I am in Sheffield - so happy to help out with the department if need be.
