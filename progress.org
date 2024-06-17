@@ -1,0 +1,22 @@
+#+title: Progress
+#+author: Atri Hegde
+
+* ROS Noetic
+Is there a better way to do this?
+
+#+begin_src shell
+nix-shell   -I nix-ros-overlay=https://github.com/lopsided98/nix-ros-overlay/archive/master.tar.gz   --option extra-substituters 'https://ros.cachix.org'   --option trusted-public-keys 'cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo='   '<nix-ros-overlay/examples/turtlebot3-gazebo.nix>'
+#+end_src
+
+#+begin_quote
+You need [[https://github.com/nix-community/nixGL][nixGL]] installed on your system. Then use =nixGL= prefix on all your GUI platforms
+#+end_quote
+
+#+ATTR_ORG: :width 800
+[[./ros1.png]]
+
+* ros2?
+
+#+begin_src bash
+nix-shell   --extra-substituters 'https://ros.cachix.org' --extra-trusted-public-keys 'ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo='   https://github.com/hacker1024/nix-ros-workspace/archive/master.tar.gz -A cli.env   --argstr distro humble   --argstr rosPackages 'rviz2 turtlesim'
+#+end_src
