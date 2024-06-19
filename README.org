@@ -31,3 +31,4 @@ asio assimp bison bullet cmake console_bridge cppcheck \
   pyqt@5 python qt@5 sip spdlog tinyxml2
 
 * Links
+- https://github.com/ros2-gbp - compiled releases?
