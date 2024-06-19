@@ -1,0 +1,8 @@
+#+title: Timesheet
+#+author: Atri Hegde
+
+17/06 - 4 hours: roadmap, getting ros2 nix.
+18/06 - 6 hours: Learning macos stuff and setting up nix on mac.
+19/06 - 2 hours: Exploring robostack. Is it feasible to use this instead of nix. or better yet use it via nix?
+20/06 -
+21/06 -

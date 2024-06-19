@@ -12,6 +12,7 @@ Still in very early stages. The end goal is to be able to use ROS 2 tools with o
 - [[#preface][Preface]]
 - [[#roadmap][Roadmap]]
 - [[#progress][Progress]]
+- [[#packages-for-macos][Packages for MacOS]]
 - [[#links][Links]]
 
 * Roadmap
@@ -20,5 +21,13 @@ Refer to the [[./roadmap.org][roadmap.org]] file.
 
 * Progress
 Refer to the [[./progress.org][progress.org]] file.
+
+* Packages for MacOS
+
+https://docs.ros.org/en/jazzy/Installation/Alternatives/macOS-Development-Setup.html#
+
+asio assimp bison bullet cmake console_bridge cppcheck \
+  cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
+  pyqt@5 python qt@5 sip spdlog tinyxml2
 
 * Links
