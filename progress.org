@@ -13,10 +13,17 @@ You need [[https://github.com/nix-community/nixGL][nixGL]] installed on your sys
 #+end_quote
 
 #+ATTR_ORG: :width 800
-[[./ros1.png]]
+[[./screenshots/ros1.png]]
 
 * ros2?
 
 #+begin_src bash
 nix-shell   --extra-substituters 'https://ros.cachix.org' --extra-trusted-public-keys 'ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo='   https://github.com/hacker1024/nix-ros-workspace/archive/master.tar.gz -A cli.env   --argstr distro humble   --argstr rosPackages 'rviz2 turtlesim'
 #+end_src
+
+** Rviz 2 using shell.nix
+
+#+ATTR_ORG: :width 800
+[[./screenshots/rviz2_mac.png]]
+
+After installing from robostack, install the ros-humble-gazebo-ros and ros-humble-gazebo-ros-pkgs, that will get you ros2 run gazebo_ros. ros-humble-desktop-full installs gazebo_dev, but for some reason not the ros packages that provide this support. confirm with ros2 pkg list
