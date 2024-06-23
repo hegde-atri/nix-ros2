@@ -1,8 +1,12 @@
 #+title: Timesheet
 #+author: Atri Hegde
 
+* Week 1
 17/06 - 4 hours: roadmap, getting ros2 nix.
-18/06 - 6 hours: Learning macos stuff and setting up nix on mac.
+18/06 - 6 hours: Learning macos stuff and setting up nix on mac. Creating basic macOS shell derivation.
 19/06 - 3 hours: Exploring robostack. Is it feasible to use this instead of nix. or better yet use it via nix?
-20/06 - 3 hours: Basic example of ros2 on macOS with gazebo and rviz2 working using micromamba + shell.nix
-21/06 - 4 hours:
+20/06 - 3 hours: Basic example of ros2 on macOS with gazebo and rviz2 working using micromamba + shell.nix.
+21/06 - 4 hours: Learning the nix-ros-overlay to accomodate macOS. Exploring the project to see where what needs to be changed.
+
+* Week 2
+24/06 - 2 hours using direnv to automate nix-shell deployment. Outline of documentation.
