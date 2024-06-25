@@ -15,7 +15,21 @@ You need [[https://github.com/nix-community/nixGL][nixGL]] installed on your sys
 #+ATTR_ORG: :width 800
 [[./screenshots/ros1.png]]
 
-* ros2?
+* ros2
+** Basic ROS2 on MacOS
+First you'll need to clone my nix-ros-overlay fork using the command below.
+
+#+begin_src bash
+git clone https://github.com/hegde-atri/nix-ros-overlay.git
+#+end_src
+
+Now run =cd nix-ros-overlay/examples= and run this nix-shell command.
+
+#+begin_src bash
+nix-shell ros2-basic.nix
+#+end_src
+
+** Linux
 
 #+begin_src bash
 nix-shell   --extra-substituters 'https://ros.cachix.org' --extra-trusted-public-keys 'ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo='   https://github.com/hacker1024/nix-ros-workspace/archive/master.tar.gz -A cli.env   --argstr distro humble   --argstr rosPackages 'rviz2 turtlesim'
@@ -26,4 +40,4 @@ nix-shell   --extra-substituters 'https://ros.cachix.org' --extra-trusted-public
 #+ATTR_ORG: :width 800
 [[./screenshots/rviz2_mac.png]]
 
-After installing from robostack, install the ros-humble-gazebo-ros and ros-humble-gazebo-ros-pkgs, that will get you ros2 run gazebo_ros. ros-humble-desktop-full installs gazebo_dev, but for some reason not the ros packages that provide this support. confirm with ros2 pkg list
+You can just run =nix-shell= after cloning this repository.
