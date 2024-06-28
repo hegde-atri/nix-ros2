@@ -1,38 +1,32 @@
 {
   description = "A very basic flake";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-ros-overlay.url = "github:hegde-atri/nix-ros-overlay";
+    nixpkgs.follows = "nix-ros-overlay/nixpkgs";
   };
-
-  outputs = { self, nixpkgs }:
-  let
-    commonShellHook = ''
-      eval "$(starship init bash)"
-    '';
-  in
-    {
-      devShell.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.mkShell {
-        buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [ 
-          hello
-          starship
-          eza
-        ];
-        shellHook = ''
-          ${commonShellHook}
-        '';
-      };
-
-      devShell.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.mkShell {
-        buildInputs = with nixpkgs.legacyPackages.aarch64-darwin; [ 
-          hello
-          starship
-          eza
-        ];
-        shellHook = ''
-          echo "Detected Apple Silicon"
-          ${commonShellHook}
-        '';
-      };
-    };
+  outputs = { self, nix-ros-overlay, nixpkgs }:
+    nix-ros-overlay.inputs.flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ nix-ros-overlay.overlays.default ];
+        };
+      in {
+        devShells.default = pkgs.mkShell {
+          name = "ROS2 Humble";
+          packages = with pkgs.rosPackages.humble; [
+            ros-core
+            pkgs.colcon
+            geometry-msgs
+            sros2
+          ];
+          shellHook = ''
+            alias hello='echo "Hello World!"'
+          '';
+        };
+      });
+  nixConfig = {
+    extra-substituters = [ "https://ros.cachix.org" ];
+    extra-trusted-public-keys = [ "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo=" ];
+  };
 }
