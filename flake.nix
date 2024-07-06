@@ -11,17 +11,29 @@
           inherit system;
           overlays = [ nix-ros-overlay.overlays.default ];
         };
-      in {
-        devShells.default = pkgs.mkShell {
-          name = "ROS2 Humble";
+      in
+      if system == "aarch64-darwin" then {
+        devShell = pkgs.mkShell {
           packages = with pkgs.rosPackages.humble; [
-            ros-core
             pkgs.colcon
+            ros-core
             geometry-msgs
-            sros2
           ];
           shellHook = ''
-            alias hello='echo "Hello World!"'
+            alias hello='echo "Hello World from macOS!"'
+          '';
+        };
+      } else {
+        devShell = pkgs.mkShell {
+          packages = with pkgs.rosPackages.humble; [
+            pkgs.colcon
+            ros-core
+            geometry-msgs
+            rviz2
+            gazebo
+          ];
+          shellHook = ''
+            alias hello='echo "Hello World from non-macOS!"'
           '';
         };
       });
