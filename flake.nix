@@ -45,6 +45,8 @@
           ];
           shellHook = ''
             alias hello='echo "Hello World from non-macOS!"'
+            alias gazebo='nixGL gazebo'
+            alias rviz2='nixGL rviz2'
           '';
         };
       });
