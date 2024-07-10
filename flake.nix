@@ -1,7 +1,7 @@
 {
   description = "A very basic flake";
   inputs = {
-    nix-ros-overlay.url = "github:hegde-atri/nix-ros-overlay";
+    nix-ros-overlay.url = "github:wentasah/nix-ros-overlay";
     nixpkgs.follows = "nix-ros-overlay/nixpkgs";
   };
   outputs = { self, nix-ros-overlay, nixpkgs }:
@@ -16,8 +16,12 @@
         devShell = pkgs.mkShell {
           packages = with pkgs.rosPackages.humble; [
             pkgs.colcon
-            ros-core
-            geometry-msgs
+            (with pkgs.rosPackages.humble; buildEnv {
+              paths = [
+                ros-core
+                geometry-msgs
+              ];
+            })
           ];
           shellHook = ''
             alias hello='echo "Hello World from macOS!"'
@@ -27,10 +31,14 @@
         devShell = pkgs.mkShell {
           packages = with pkgs.rosPackages.humble; [
             pkgs.colcon
-            ros-core
-            geometry-msgs
-            rviz2
-            gazebo
+            (with pkgs.rosPackages.humble; buildEnv {
+              paths = [
+                ros-core
+                geometry-msgs
+                rviz2
+                gazebo
+              ];
+            })
           ];
           shellHook = ''
             alias hello='echo "Hello World from non-macOS!"'
