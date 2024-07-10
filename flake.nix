@@ -5,12 +5,12 @@
     nixpkgs.follows = "nix-ros-overlay/nixpkgs";
     nixgl.url = "github:nix-community/nixGL";
   };
-  outputs = { self, nix-ros-overlay, nixgl, nixpkgs }:
-    nix-ros-overlay.inputs.flake-utils.lib.eachDefaultSystem (system:
+  outputs = { nixpkgs, ... } @ inputs:
+    inputs.nix-ros-overlay.inputs.flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ nix-ros-overlay.overlays.default nixgl.overlay ];
+          overlays = [ inputs.nix-ros-overlay.overlays.default inputs.nixgl.overlay ];
         };
       in
       if system == "aarch64-darwin" then {
@@ -45,8 +45,6 @@
           ];
           shellHook = ''
             alias hello='echo "Hello World from non-macOS!"'
-            alias gazebo='echo "Work in progress"'
-            alias rviz='echo "Work in progress"'
           '';
         };
       });
