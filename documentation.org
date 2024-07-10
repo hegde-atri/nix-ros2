@@ -1,1 +1,73 @@
 #+title: Documentation
+#+author: Atri Hegde
+
+* Table of Contents :TOC:
+- [[#installing-nix][Installing nix]]
+  - [[#linux][Linux]]
+  - [[#windows][Windows]]
+  - [[#macos][macOS]]
+- [[#nix-configuration][Nix configuration]]
+- [[#development-shell][Development Shell]]
+
+* Installing nix
+** Linux
+You can use any linux distribution with =systemd= (requirement of the nix package manager).
+
+First let's get nix installed.
+
+#+begin_src bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+#+end_src
+
+#+begin_quote
+If you need to install nix without root permission then use their single user installation from their [[https://nixos.org/download/#nix-install-linux][website]].
+#+end_quote
+
+** Windows
+#+begin_quote
+⚠️ Currently a work in progress
+#+end_quote
+First we need to make sure that we have the WSL installed and upgraded to version 2.
+
+#+begin_quote
+If you are using Windows 10 before the 2004 update, follow the [[https://learn.microsoft.com/en-us/windows/wsl/install-manual][instructions here]].
+#+end_quote
+
+1. Open powershell with admin privileges
+2. Run the command =wsl --install= and after its ran restart your computer.
+3. Install Ubuntu using
+
+
+** macOS
+First let's get nix installed.
+
+#+begin_src bash
+sh <(curl -L https://nixos.org/nix/install)
+#+end_src
+
+* Nix configuration
+
+We now want to make our nix configuration file have the following config.
+
+Edit =/etc/nix/nix.conf= using your favourite text editor.
+
+Remember to replace =<USER>= with your username.
+
+#+begin_src conf
+
+build-users-group = nixbld
+experimental-features = nix-command flakes
+trusted-users = <USER> root
+#+end_src
+
+#+begin_quote
+If you chose the single user installation then you will need to edit =~/.config/nix/nix.conf= rather than =/etc/nix/nix.conf=.
+#+end_quote
+
+Now we need to restart =nix-daemon= for our config to work.
+
+#+begin_src bash
+sudo systemctl restart nix-daemon
+#+end_src
+
+* Development Shell
