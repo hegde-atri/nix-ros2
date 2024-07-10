@@ -37,7 +37,6 @@ If you are using Windows 10 before the 2004 update, follow the [[https://learn.m
 2. Run the command =wsl --install= and after its ran restart your computer.
 3. Install Ubuntu using
 
-
 ** macOS
 First let's get nix installed.
 
@@ -71,3 +70,9 @@ sudo systemctl restart nix-daemon
 #+end_src
 
 * Development Shell
+
+You can now access the developmental shell by running this command.
+
+#+begin_src bash
+nix develop github:hegde-atri/nix-ros2
+#+end_src
