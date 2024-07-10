@@ -44,6 +44,9 @@
             })
           ];
           shellHook = ''
+            if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+              export QT_QPA_PLATFORM=wayland
+            fi
             alias hello='echo "Hello World from non-macOS!"'
             alias gazebo='nixGL gazebo'
             alias rviz2='nixGL rviz2'
