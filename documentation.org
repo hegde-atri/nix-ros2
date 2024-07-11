@@ -74,5 +74,9 @@ sudo systemctl restart nix-daemon
 You can now access the developmental shell by running this command.
 
 #+begin_src bash
-nix develop github:hegde-atri/nix-ros2
+nix develop github:hegde-atri/nix-ros2 --impure
 #+end_src
+
+#+begin_quote
+We use the =impure= flag here as we want access to the system to decide drivers for openGL.
+#+end_quote
