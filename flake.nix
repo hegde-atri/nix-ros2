@@ -33,6 +33,8 @@
           packages = [
             pkgs.colcon
             pkgs.nixgl.auto.nixGLDefault
+            pkgs.libsForQt5.qt5.qtwayland
+            # pkgs.python311Packages.anyqt
             (with pkgs.rosPackages.humble; buildEnv {
               paths = [
                 ros-core
@@ -40,6 +42,7 @@
                 rviz2
                 gazebo
                 turtlesim
+                rqt
               ];
             })
           ];
