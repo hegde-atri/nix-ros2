@@ -1,25 +1,21 @@
 #+title: Nix development environment for ROS 2
 #+author: Atri Hegde
 
+![Linux - Basic](https://img.shields.io/badge/Linux-Basic-2ea44f)
+![macOS - broken](https://img.shields.io/badge/macOS-broken-orange)
+![WSL - Basic](https://img.shields.io/badge/WSL-Basic-blue)
+
 * Preface
 Easy to use Nix development environment for ROS 2 for COM2009.
 
-#+begin_quote
-Still in very early stages. The end goal is to be able to use ROS 2 tools with one command (Given nix is installed).
-#+end_quote
-
 * Table of Contents :TOC:
 - [[#preface][Preface]]
-- [[#roadmap][Roadmap]]
-- [[#progress][Progress]]
+- [[#how-to-use][How to use]]
 - [[#links][Links]]
 - [[#packages-for-macos][Packages for MacOS]]
 
-* Roadmap
-Refer to the [[./roadmap.org][roadmap.org]] file.
-
-* Progress
-Refer to the [[./progress.org][progress.org]] file.
+* How to use
+Follow the instruction on [[./documentation.org]]
 
 * Links
 - Currently getting stuck due to upstream bug - https://github.com/ros2/ros2cli/issues/713
