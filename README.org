@@ -1,9 +1,9 @@
 #+title: Nix development environment for ROS 2
 #+author: Atri Hegde
 
-![Linux - Basic](https://img.shields.io/badge/Linux-Basic-2ea44f)
-![macOS - broken](https://img.shields.io/badge/macOS-broken-orange)
-![WSL - Basic](https://img.shields.io/badge/WSL-Basic-blue)
+[[Linux - Basic][https://img.shields.io/badge/Linux-Basic-brightgreen.svg]]
+[[macOS - broken][https://img.shields.io/badge/macOS-broken-orange.svg]]
+[[WSL - Basic][https://img.shields.io/badge/WSL-Basic-blue.svg]]
 
 * Preface
 Easy to use Nix development environment for ROS 2 for COM2009.
