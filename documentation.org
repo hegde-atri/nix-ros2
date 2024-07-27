@@ -33,9 +33,28 @@ First we need to make sure that we have the WSL installed and upgraded to versio
 If you are using Windows 10 before the 2004 update, follow the [[https://learn.microsoft.com/en-us/windows/wsl/install-manual][instructions here]].
 #+end_quote
 
-1. Open powershell with admin privileges
-2. Run the command =wsl --install= and after its ran restart your computer.
-3. Install Ubuntu using
+1. Open powershell with admin privileges.
+2. Run the command =wsl --install= and after its ran, restart your computer.
+3. Now we need to install wsl again through Microsoft Store using [[this link][aka.ms/wslstorepage]].
+4. Install Ubuntu using =wsl --install -d Ubuntu=.
+
+#+begin_quote
+To verify that WSL is installed properly by trying to run the command =wsl --version= in powershell. If you see 5-10 lines of output you've installed it correctly. If you see a lot of random stuff (the help menu) printed, get some help.
+#+end_quote
+
+*** Installing Nix on WSL Ubuntu
+
+
+#+begin_quote
+As of writing this, systemd is automatically enabled. If you have an older installation of WSL you can check this by running =systemctl status=. If it returns command not found, get help.
+#+end_quote
+
+Open an Ubuntu terminal window and install =nix=.
+
+#+begin_src bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+#+end_src
+
 
 ** macOS
 First let's get nix installed.
@@ -48,7 +67,7 @@ sh <(curl -L https://nixos.org/nix/install)
 
 We now want to make our nix configuration file have the following config.
 
-Edit =/etc/nix/nix.conf= using your favourite text editor.
+Edit =/etc/nix/nix.conf= using your favourite text editor with root permissions.
 
 Remember to replace =<USER>= with your username.
 
