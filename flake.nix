@@ -1,7 +1,7 @@
 {
   description = "A very basic flake";
   inputs = {
-    nix-ros-overlay.url = "github:wentasah/nix-ros-overlay";
+    nix-ros-overlay.url = "github:etherswangel/nix-ros-overlay";
     nixpkgs.follows = "nix-ros-overlay/nixpkgs";
     nixgl.url = "github:nix-community/nixGL";
   };
@@ -48,7 +48,7 @@
           ];
           shellHook = ''
             if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-              export QT_QPA_PLATFORM=wayland
+              export QT_QPA_PLATFORM=xcb
             fi
             alias hello='echo "Hello World from non-macOS!"'
             alias gazebo='nixGL gazebo'

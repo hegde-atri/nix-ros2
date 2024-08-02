@@ -39,15 +39,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1720261077,
-        "narHash": "sha256-IQHdcr4sa9jAtCMplzFoXI6mJ+jsPCWPa8RIqfM5LnU=",
-        "owner": "wentasah",
+        "lastModified": 1722591920,
+        "narHash": "sha256-FGDbCIxucHIKd44amV+j6ajY/hwPtU05rOLE4KZKKG8=",
+        "owner": "etherswangel",
         "repo": "nix-ros-overlay",
-        "rev": "84371432cf7d96982a4de6eccc895b5583a49e25",
+        "rev": "73cdae5e4429238dd3ddc38df7a6fa9773e980e0",
         "type": "github"
       },
       "original": {
-        "owner": "wentasah",
+        "owner": "etherswangel",
         "repo": "nix-ros-overlay",
         "type": "github"
       }

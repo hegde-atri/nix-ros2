@@ -43,8 +43,6 @@ To verify that WSL is installed properly by trying to run the command =wsl --ver
 #+end_quote
 
 *** Installing Nix on WSL Ubuntu
-
-
 #+begin_quote
 As of writing this, systemd is automatically enabled. If you have an older installation of WSL you can check this by running =systemctl status=. If it returns command not found, get help.
 #+end_quote
