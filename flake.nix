@@ -21,12 +21,15 @@
               paths = [
                 ros-core
                 geometry-msgs
+                example-interfaces
+                ament-cmake-core
                 turtlesim
               ];
             })
           ];
           shellHook = ''
             alias hello='echo "Hello World from macOS!"'
+            alias build='colcon build --symlink-install'
           '';
         };
       } else {
@@ -56,6 +59,7 @@
             alias hello='echo "Hello World from non-macOS!"'
             alias gazebo='nixGL gazebo'
             alias rviz2='nixGL rviz2'
+            alias build='colcon build --symlink-install'
           '';
         };
       });
