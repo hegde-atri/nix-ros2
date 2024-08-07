@@ -43,9 +43,10 @@
               paths = [
                 ros-core
                 geometry-msgs
+                example-interfaces
+                ament-cmake-core
                 rqt
                 rqt-graph
-                ament-cmake-core
                 rviz2
                 gazebo
                 turtlesim
