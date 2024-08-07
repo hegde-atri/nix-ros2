@@ -20,7 +20,6 @@
             (with pkgs.rosPackages.humble; buildEnv {
               paths = [
                 ros-core
-                ros-environment
                 geometry-msgs
                 turtlesim
               ];
@@ -40,9 +39,10 @@
             (with pkgs.rosPackages.humble; buildEnv {
               paths = [
                 ros-core
-                ros-environment
                 geometry-msgs
                 rqt
+                rqt-graph
+                ament-cmake-core
                 rviz2
                 gazebo
                 turtlesim
