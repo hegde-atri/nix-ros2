@@ -8,6 +8,12 @@
   - [[#macos][macOS]]
 - [[#nix-configuration][Nix configuration]]
 - [[#development-shell][Development Shell]]
+- [[#setting-up-direnv-optional][Setting up =direnv= (Optional)]]
+  - [[#install-direnv][Install direnv]]
+  - [[#setup-direnv-with-your-shell][Setup direnv with your shell]]
+  - [[#setting-up-ros2_ws][Setting up ros2_ws]]
+- [[#troubleshooting-faq][Troubleshooting FAQ]]
+  - [[#nix-not-working-after-updating-your-macos][Nix not working after updating your macOS.]]
 
 * Installing nix
 ** Linux
@@ -86,6 +92,13 @@ Now we need to restart =nix-daemon= for our config to work.
 sudo systemctl restart nix-daemon
 #+end_src
 
+Or if you are using macOS
+
+#+begin_src bash
+sudo launchctl stop org.nixos.nix-daemon
+sudo launchctl start org.nixos.nix-daemon
+#+end_src
+
 * Development Shell
 
 You can now access the developmental shell by running this command.
@@ -97,3 +110,42 @@ nix develop github:hegde-atri/nix-ros2 --impure
 #+begin_quote
 We use the =impure= flag here as we want access to the system to decide drivers for openGL.
 #+end_quote
+
+* Setting up =direnv= (Optional)
+We can use a program called =direnv= to automatically load the nix shell with all the ros packages when we are in a ros workspace directory.
+
+** Install direnv
+
+(prefer to use brew, but you can also use nix itself)
+
+#+begin_src
+brew install direnv
+#+end_src
+
+** Setup direnv with your shell
+
+Add this to your =~/.zshrc= file.
+
+#+begin_src bash
+eval "$(direnv hook zsh)"
+#+end_src
+
+#+begin_quote
+If you are using bash or any other shell, replace zsh with your shell. Or failing that, check the [[https://direnv.net/docs/hook.html][official documentation]].
+#+end_quote
+
+** Setting up ros2_ws
+
+Now in the directory where you want the ros2 tools to be activated, add a =.envrc= file with the following contents
+
+#+begin_src conf
+use flake "github:hegde-atri/nix-ros2" --impure
+#+end_src
+
+Now, when you enter that directory you will have to type in =direnv allow= for the first time, to say that it is safe for direnv to execute the =.envrc= file that we created.
+
+* Troubleshooting FAQ
+
+** Nix not working after updating your macOS.
+
+> TODO
