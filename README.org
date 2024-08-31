@@ -15,7 +15,20 @@ Easy to use Nix development environment for ROS 2 for COM2009.
 - [[#packages-for-macos][Packages for MacOS]]
 
 * How to use
-Follow the instruction on [[./documentation.org]]
+Follow the instruction on [[./documentation.org]] for macOS.
+
+For linux:
+
+First build the current docker image.
+#+begin_src bash
+docker build -t ros2_image .
+#+end_src
+
+#+begin_src bash
+ docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --privileged ros2_image
+#+end_src
+
+You now have access to your ros2 dev environment (shared volumes etc coming soon)
 
 * Links
 - Currently getting stuck due to upstream bug - https://github.com/ros2/ros2cli/issues/713
